@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="cs">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="robots" content="index, follow" />
+		<meta name="keywords" content="život,matematika,autonomie" />
+		<meta name="description" content="Společně bez rozdílu" />
+		<meta name="author" content="Robert Rajs, http://www.rajs.info, engine-r@email.cz">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10">
+        <meta name="msapplication-TileImage" content="favicon.ico?v=201810220036">
+        <link rel="shortcut icon" href="favicon.ico?v=201810220036">
+        <link rel="stylesheet" href="css/zakladni.css">
+        <script src="vendor/components/jquery/jquery.min.js"></script>
+        <script src="js/init.js"></script>
+    </head>
+    <body>
+        <script>
+
+            /**
+             * Konfigurační parametry pro Digitalife
+             */
+            dlParams = {
+                objekty: {
+                    ditulka: {
+                        vaha: 100,
+                        posX: 100,
+                        posY: 100,
+                        engine: "traditional",
+                        interakce: "pritahovani",
+                        fps: 30
+                    },
+                    bertram: {
+                        vaha: 100,
+                        posX: 500,
+                        posY: 500,
+                        engine: "energon",
+                        interakce: "pritahovani",
+                        fps: 30
+                    }
+                }
+            };
+
+            var DL = new Digitalife(dlParams);
+
+        </script>
+    </body>
+</html>

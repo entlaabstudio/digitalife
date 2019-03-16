@@ -1,0 +1,6 @@
+{
+    "require": {
+        "components/jquery": "^3.3",
+        "components/jqueryui": "^1.12"
+    }
+}
