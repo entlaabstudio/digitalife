@@ -8,7 +8,7 @@
 		<meta name="author" content="Robert Rajs, http://www.rajs.info, engine-r@email.cz">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10">
         <meta name="msapplication-TileImage" content="favicon.ico?v=201810220036">
-        <link rel="shortcut icon" href="favicon.ico?v=201810220036">
+        <!-- <link rel="shortcut icon" href="favicon.ico?v=201810220036"> -->
         <link rel="stylesheet" href="css/zakladni.css">
         <script src="vendor/components/jquery/jquery.min.js"></script>
         <script src="js/init.js"></script>
@@ -20,12 +20,30 @@
              * Konfigurační parametry pro Digitalife
              */
             dlParams = {
+                
                 objekty: {
+                
                     ditulka: {
                         vaha: 100,
                         posX: 100,
                         posY: 100,
-                        engine: "traditional",
+                        engine: "energon.js",
+                        interakce: "pritahovani",
+                        fps: 30
+                    },
+                    bohumil: {
+                        vaha: 100,
+                        posX: 1000,
+                        posY: 1000,
+                        engine: "traditional.js",
+                        interakce: "pritahovani",
+                        fps: 30
+                    },
+                    drahomina: {
+                        vaha: 100,
+                        posX: 150,
+                        posY: 150,
+                        engine: "traditional.js",
                         interakce: "pritahovani",
                         fps: 30
                     },
@@ -33,11 +51,14 @@
                         vaha: 100,
                         posX: 500,
                         posY: 500,
-                        engine: "energon",
+                        engine: "energon.js",
                         interakce: "pritahovani",
                         fps: 30
-                    }
-                }
+                    },
+                },
+                
+                enginePath: "js/engines/",
+
             };
 
             var DL = new Digitalife(dlParams);
