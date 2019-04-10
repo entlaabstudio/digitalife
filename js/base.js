@@ -5,11 +5,23 @@
  */
 
 class DigitalifeBase {
-	getID() {
-		// var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
-		// localStorage.setItem("")
-		console.log(this.params,this.index);
-		localStorage.index = this.index;
-		return localStorage.index;
+	pushData() {
+
+		var data = [];
+		data[this.id] = [];
+		data[this.id][0] = this.index;
+		data[this.id][1] = this.params;
+
+		var dataJSON = JSON.stringify(data);
+
+		console.log(data,dataJSON);
+		
+		
+		// localStorage.obj = [index => "ahoj"];
+
+
+
+		// localStorage.removeItem("ahoj");
+		return localStorage.length;
 	}
 }

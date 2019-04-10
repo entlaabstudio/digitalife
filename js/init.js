@@ -48,11 +48,11 @@ class Digitalife {
 	initClass() {
 
 		var thatthat = this;
+		var id = 0;
 		$.each(this.dlParams.objekty, function(index, value) {
-			// setTimeout(function() {
-				var initCommand = "new " + thatthat.getClassName(value.engine) + "(index,value)";
-				eval(initCommand);
-			// },500);
+			var initCommand = "new " + thatthat.getClassName(value.engine) + "(index,value,id)";
+			eval(initCommand);
+			id++;
 		});	
 
 	}
