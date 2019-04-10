@@ -53,7 +53,7 @@ class Digitalife {
 			var initCommand = "new " + thatthat.getClassName(value.engine) + "(index,value,id)";
 			eval(initCommand);
 			id++;
-		});	
+		});
 
 	}
 
@@ -62,7 +62,6 @@ class Digitalife {
 	 * 
 	 * @param {string} fileName název souboru třídy
 	 */
-	
 	getClassName(fileName) {
 
 		var fileName;

@@ -10,10 +10,12 @@ class EnergonEngine extends DigitalifeBase {
         super.index = index;
         super.id = id;
 
-        var pushData = super.pushData();
-        
-        // console.log(id,localStorage,"energon engine se hlásí...",params);
-
         // Uložit sdílené informace
+        super.pushData();
+        
+        console.log("popD",super.popData());
+        console.log("orig",params);
+        console.log("othr",super.popDataOthers());
+
     }
 }
