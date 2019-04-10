@@ -9,19 +9,28 @@ class DigitalifeBase {
 
 		var data = [];
 		data[this.id] = [];
-		data[this.id][0] = this.index;
-		data[this.id][1] = this.params;
+		data[this.id]["index"] = this.index;
+		data[this.id]["params"] = this.params;
 
+		data = this.toObject(data);
+		
 		var dataJSON = JSON.stringify(data);
 
-		console.log(data,dataJSON);
-		
-		
-		// localStorage.obj = [index => "ahoj"];
-
-
-
-		// localStorage.removeItem("ahoj");
+		// localStorage.removeItem(this.id);
+		localStorage.setItem(this.id,dataJSON);
 		return localStorage.length;
+	}
+
+	toObject(array) {
+		var thisEleObj = new Object();
+		if(typeof array == "object"){
+			for(var i in array){
+				var thisEle = this.toObject(array[i]);
+				thisEleObj[i] = thisEle;
+			}
+		} else {
+			thisEleObj = array;
+		}
+		return thisEleObj;
 	}
 }
