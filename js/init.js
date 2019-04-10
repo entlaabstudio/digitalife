@@ -3,44 +3,43 @@
  * 
  * Autor: Robert Rajs (c) 2019
  */
-
 class Digitalife {
 
 	constructor(dlParams) {
-
 		this.dlParams = dlParams;
 		this.ld();
-
 	}
 
 	/**
 	 * Nahraje všechny potřebné skripty do HTML
 	 */
-
 	ld() {
-
 		var filesToLoad = [];
 		var i = 0;
 		var that = this;
 
-		$.each(this.dlParams.objekty, function() {
-			if (filesToLoad.indexOf(this.engine) == -1) {
-				filesToLoad[i] = this.engine;
-				i++;
-			}
+		var s = document.createElement("script");
+		s.type = "text/ecmascript";
+		s.src = "js/base.js";
+		
+		$("head").append(s).promise().done(function () {
+			console.log(that);
+			$.each(that.dlParams.objekty, function() {
+				if (filesToLoad.indexOf(this.engine) == -1) {
+					filesToLoad[i] = this.engine;
+					i++;
+				}
+			});
+			console.log(filesToLoad);
+	
+			$.each(filesToLoad, function() {
+				var s = document.createElement("script");
+				s.type = "text/ecmascript";
+				s.src = that.dlParams.enginePath + this;
+				$("head").append(s);
+			});
+			that.initClass();
 		});
-
-		$.each(filesToLoad, function() {
-
-			var s = document.createElement("script");
-			s.src = that.dlParams.enginePath + this;
-			
-			document.body.appendChild(s);
-
-		});
-
-		this.initClass();
-
 	}
 
 	/**
@@ -50,10 +49,10 @@ class Digitalife {
 
 		var thatthat = this;
 		$.each(this.dlParams.objekty, function(index, value) {
-			setTimeout(function() {
+			// setTimeout(function() {
 				var initCommand = "new " + thatthat.getClassName(value.engine) + "(index,value)";
 				eval(initCommand);
-			},500);
+			// },500);
 		});	
 
 	}
@@ -71,5 +70,4 @@ class Digitalife {
 		return fileName.charAt(0).toUpperCase() + fileName.substring(0,extPos).slice(1) + "Engine";
 
 	}
-
 }
