@@ -5,12 +5,11 @@
  */
 
 class DigitalifeBase {
-    constructor() {
-        this.engineID = 0;
-    }
-
-    getID() {
-        this.engineID += 1;
-        return this.engineID;
-    }
+	getID() {
+		// var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+		// localStorage.setItem("")
+		console.log(this.params,this.index);
+		localStorage.index = this.index;
+		return localStorage.index;
+	}
 }
