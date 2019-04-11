@@ -11,23 +11,36 @@ class DigitalifeBase {
 	 */
 	pushData() {
 
-		var data = [];
+		var preferLocalStorage = this.params.preferLocalStorage;
+		this.params.preferLocalStorage = true;
+		var data = {};
 		data["index"] = this.index;
 		data["params"] = this.params;
-
-		data = this.toObject(data);
 		
 		var dataJSON = JSON.stringify(data);
 
-		localStorage.setItem(this.id,dataJSON);
+		if (preferLocalStorage) {
+			if (this.popData() === false) {
+				localStorage.setItem(this.id,dataJSON);
+			}
+		} else {
+			localStorage.setItem(this.id,dataJSON);
+		}
 
 	}
 
 	/**
-	 * Vrátí parametry objektu z lokální databáze
+	 * Načte parametry objektu z lokální databáze
 	 */
 	popData() {
-		return JSON.parse(localStorage.getItem(this.id)).params;
+		var ret = localStorage.getItem(this.id);
+		
+		if (ret !== null) {
+			this.params = JSON.parse(ret).params
+			return this.params;
+		} else {
+			return false;
+		}
 	}
 
 	/**
@@ -41,24 +54,16 @@ class DigitalifeBase {
 				ret[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
 			}
 		}
-		return this.toObject(ret);
+		return ret;
 	}
-
+	
 	/**
-	 * Převádí rekurzivně pole na objekt
-	 * 
-	 * @param {array} array 
+	 * Tady se to zapne
 	 */
-	toObject(array) {
-		var thisEleObj = new Object();
-		if(typeof array == "object"){
-			for(var i in array){
-				var thisEle = this.toObject(array[i]);
-				thisEleObj[i] = thisEle;
-			}
-		} else {
-			thisEleObj = array;
-		}
-		return thisEleObj;
+	startUp() {
+		var that = this;
+		this.tick = setInterval(function() {
+			that.getMoving();
+		},1000 / this.params.fps);
 	}
 }

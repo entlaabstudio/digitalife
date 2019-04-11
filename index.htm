@@ -7,62 +7,66 @@
 		<meta name="description" content="Společně bez rozdílu" />
 		<meta name="author" content="Robert Rajs, http://www.rajs.info, engine-r@email.cz">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10">
-        <!-- <meta name="msapplication-TileImage" content="favicon.ico?v=201810220036"> -->
-        <!-- <link rel="shortcut icon" href="favicon.ico?v=201810220036"> -->
-        <link rel="stylesheet" href="css/zakladni.css">
-        <script type="text/javascript" src="vendor/components/jquery/jquery.min.js"></script>
-        <script type="text/ecmascript" src="js/init.js"></script>
-    </head>
-    <body>
-        <script>
+		<!-- <meta name="msapplication-TileImage" content="favicon.ico?v=201810220036"> -->
+		<!-- <link rel="shortcut icon" href="favicon.ico?v=201810220036"> -->
+		<link rel="stylesheet" href="css/zakladni.css">
+		<script type="text/javascript" src="vendor/components/jquery/jquery.min.js"></script>
+		<script type="text/ecmascript" src="js/init.js"></script>
+	</head>
+	<body>
+		<script>
 
-            /**
-             * Konfigurační parametry pro Digitalife
-             */
-            dlParams = {
-                
-                objekty: {
-                
-                    ditulka: {
-                        vaha: 110,
-                        posX: 100,
-                        posY: 100,
-                        engine: "energon.js",
-                        interakce: "pritahovani",
-                        fps: 30
-                    },
-                    bohumil: {
-                        vaha: 100,
-                        posX: 1000,
-                        posY: 1000,
-                        engine: "energon.js",
-                        interakce: "pritahovani",
-                        fps: 30
-                    },
-                    drahomina: {
-                        vaha: 100,
-                        posX: 150,
-                        posY: 150,
-                        engine: "energon.js",
-                        interakce: "pritahovani",
-                        fps: 30
-                    },
-                    bertram: {
-                        vaha: 100,
-                        posX: 500,
-                        posY: 500,
-                        engine: "energon.js",
-                        interakce: "pritahovani",
-                        fps: 30
-                    },
-                },
-                
-                enginePath: "js/engines/",
+			/**
+			 * Konfigurační parametry pro Digitalife
+			 */
+			dlParams = {
+				
+				objekty: {
+				
+					ditulka: {
+						fps: 30,
+						posX: 100,
+						posY: 100,
+						weight: 110,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: true
+					},
+					bohumil: {
+						fps: 30,
+						posX: 1000,
+						posY: 1000,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: true
+					},
+					drahomina: {
+						fps: 30,
+						posX: 150,
+						posY: 150,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: true
+					},
+					bertram: {
+						fps: 30,
+						posX: 500,
+						posY: 500,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+				},
+				
+				enginePath: "js/engines/",
 
-            };
+			};
 
-            var DL = new Digitalife(dlParams);
+			var DL = new Digitalife(dlParams);
 
-        </script>
-    </body>
+		</script>
+	</body>
 </html>
