@@ -23,6 +23,27 @@ class EnergonEngine extends DigitalifeBase {
 	}
 
 	getMoving() {
-		console.log("už to jede");
+		// console.log("už to jede");
+		var ostatni = super.popDataOthers();
+		// console.log("já objekt X",this.params.posX);
+		// console.log("já objekt Y",this.params.posY);
+		// console.log("já objekt váha",this.params.weight);
+		for (var prop in ostatni) {
+			// console.log("var prop",prop);
+			// console.log("hodnoty X",super.popDataOthers()[prop].params.posX);
+			// console.log("hodnoty Y",super.popDataOthers()[prop].params.posY);
+			// console.log("váha",super.popDataOthers()[prop].params.weight);
+			/**
+			 * Následuje experimentální kód, který projde výpočetním zdokonalením (Energon)
+			 */
+			this.params.posX += 1;
+			this.params.posY -= 1;
+		}
+		/**
+		 * Uložení dat
+		 * 
+		 * parametr false umožňuje přepis existujících dat. ;-)
+		 */
+		super.pushData(false);
 	}
 }

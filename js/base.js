@@ -9,9 +9,10 @@ class DigitalifeBase {
 	/**
 	 * Uloží data objektu do lokální databáze
 	 */
-	pushData() {
+	pushData(preferLocalStorage = this.params.preferLocalStorage) {
 
-		var preferLocalStorage = this.params.preferLocalStorage;
+		var preferLocalStorage;
+		
 		this.params.preferLocalStorage = true;
 		var data = {};
 		data["index"] = this.index;
