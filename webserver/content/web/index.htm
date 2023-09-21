@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="cs">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="robots" content="index, follow" />
+		<meta name="keywords" content="život,matematika,autonomie" />
+		<meta name="description" content="Společně bez rozdílu" />
+		<meta name="author" content="Robert Rajs, http://www.rajs.info, engine-r@email.cz">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10">
+		<!-- <meta name="msapplication-TileImage" content="favicon.ico?v=201810220036"> -->
+		<!-- <link rel="shortcut icon" href="favicon.ico?v=201810220036"> -->
+		<link rel="stylesheet" href="css/zakladni.css">
+		<script type="text/javascript" src="vendor/components/jquery/jquery.min.js"></script>
+		<script type="text/ecmascript" src="js/init.js"></script>
+	</head>
+	<body>
+		<script>
+
+			/**
+			 * Konfigurační parametry pro Digitalife
+			 */
+			dlParams = {
+				
+				objekty: {
+				
+					ditulka: {
+						fps: 30,
+						posX: 0,
+						posY: 0,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 110,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					bertram: {
+						fps: 30,
+						posX: 100,
+						posY: 100,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					bohumil: {
+						fps: 30,
+						posX: -100,
+						posY: -100,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					drahomina: {
+						fps: 30,
+						posX: 50,
+						posY: 50,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					hylius: {
+						fps: 30,
+						posX: -50,
+						posY: -50,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 110,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					
+					hambakr: {
+						fps: 30,
+						posX: 1000,
+						posY: 1000,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					tulian: {
+						fps: 30,
+						posX: 150,
+						posY: 150,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					hugert: {
+						fps: 30,
+						posX: 500,
+						posY: 500,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+				
+					d1itulka: {
+						fps: 30,
+						posX: 100,
+						posY: 100,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 110,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					bo1humil: {
+						fps: 30,
+						posX: 1000,
+						posY: 1000,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					dra1homina: {
+						fps: 30,
+						posX: 150,
+						posY: 150,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					bert1ram: {
+						fps: 30,
+						posX: 500,
+						posY: 500,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					hyliu1s: {
+						fps: 30,
+						posX: 100,
+						posY: 100,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 110,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					hambak1r: {
+						fps: 30,
+						posX: 1000,
+						posY: 1000,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					tulian1: {
+						fps: 30,
+						posX: 150,
+						posY: 150,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					h1ugert: {
+						fps: 30,
+						posX: 500,
+						posY: 500,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					
+
+					0: {
+						fps: 30,
+						posX: 0,
+						posY: 0,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 110,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					1: {
+						fps: 30,
+						posX: 100,
+						posY: 100,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					2: {
+						fps: 30,
+						posX: -100,
+						posY: -100,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					3: {
+						fps: 30,
+						posX: 50,
+						posY: 50,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					4: {
+						fps: 30,
+						posX: -50,
+						posY: -50,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 110,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					
+					5: {
+						fps: 30,
+						posX: 1000,
+						posY: 1000,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					6: {
+						fps: 30,
+						posX: 150,
+						posY: 150,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					7: {
+						fps: 30,
+						posX: 500,
+						posY: 500,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+				
+					8: {
+						fps: 30,
+						posX: 100,
+						posY: 100,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 110,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					9: {
+						fps: 30,
+						posX: 1000,
+						posY: 1000,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					10: {
+						fps: 30,
+						posX: 150,
+						posY: 150,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					11: {
+						fps: 30,
+						posX: 500,
+						posY: 500,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					12: {
+						fps: 30,
+						posX: 100,
+						posY: 100,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 110,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					13: {
+						fps: 30,
+						posX: 1000,
+						posY: 1000,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					14: {
+						fps: 30,
+						posX: 150,
+						posY: 150,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					15: {
+						fps: 30,
+						posX: 500,
+						posY: 500,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+
+
+
+
+
+					a0: {
+						fps: 30,
+						posX: 0,
+						posY: 0,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 110,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					a1: {
+						fps: 30,
+						posX: 100,
+						posY: 100,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					a2: {
+						fps: 30,
+						posX: -100,
+						posY: -100,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					a3: {
+						fps: 30,
+						posX: 50,
+						posY: 50,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					a4: {
+						fps: 30,
+						posX: -50,
+						posY: -50,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 110,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					
+					a5: {
+						fps: 30,
+						posX: 1000,
+						posY: 1000,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					a6: {
+						fps: 30,
+						posX: 150,
+						posY: 150,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					a7: {
+						fps: 30,
+						posX: 500,
+						posY: 500,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+				
+					a8: {
+						fps: 30,
+						posX: 100,
+						posY: 100,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 110,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					a9: {
+						fps: 30,
+						posX: 1000,
+						posY: 1000,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					a10: {
+						fps: 30,
+						posX: 150,
+						posY: 150,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					a11: {
+						fps: 30,
+						posX: 500,
+						posY: 500,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					a12: {
+						fps: 30,
+						posX: 100,
+						posY: 100,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 110,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					a13: {
+						fps: 30,
+						posX: 1000,
+						posY: 1000,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					a14: {
+						fps: 30,
+						posX: 150,
+						posY: 150,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					a15: {
+						fps: 30,
+						posX: 500,
+						posY: 500,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+
+
+
+
+
+
+
+					b0: {
+						fps: 30,
+						posX: 0,
+						posY: 0,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 110,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					b1: {
+						fps: 30,
+						posX: 100,
+						posY: 100,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					b2: {
+						fps: 30,
+						posX: -100,
+						posY: -100,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					b3: {
+						fps: 30,
+						posX: 50,
+						posY: 50,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					b4: {
+						fps: 30,
+						posX: -50,
+						posY: -50,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 110,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					
+					b5: {
+						fps: 30,
+						posX: 1000,
+						posY: 1000,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					b6: {
+						fps: 30,
+						posX: 150,
+						posY: 150,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					b7: {
+						fps: 30,
+						posX: 500,
+						posY: 500,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+				
+					b8: {
+						fps: 30,
+						posX: 100,
+						posY: 100,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 110,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					b9: {
+						fps: 30,
+						posX: 1000,
+						posY: 1000,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					b10: {
+						fps: 30,
+						posX: 150,
+						posY: 150,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					b11: {
+						fps: 30,
+						posX: 500,
+						posY: 500,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					b12: {
+						fps: 30,
+						posX: 100,
+						posY: 100,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 110,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					b13: {
+						fps: 30,
+						posX: 1000,
+						posY: 1000,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					b14: {
+						fps: 30,
+						posX: 150,
+						posY: 150,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+					b15: {
+						fps: 30,
+						posX: 500,
+						posY: 500,
+						acclrX: 0,
+						acclrY: 0,
+						weight: 100,
+						engine: "energon.js",
+						interaction: "attract",
+						preferLocalStorage: false
+					},
+				},
+				
+				enginePath: "js/engines/",
+
+			};
+
+			var DL = new Digitalife(dlParams);
+
+		</script>
+	</body>
+</html>

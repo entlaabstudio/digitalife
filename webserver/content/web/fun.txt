@@ -1,0 +1,1 @@
+Pozor na HTTP. Musí to běžet na serveru, jinak nic NEMAKÁ!!!
