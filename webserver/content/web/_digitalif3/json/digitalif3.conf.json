@@ -1,0 +1,16 @@
+{
+    "app": {
+        "info": {    
+            "version": "0.0.1",
+            "name": "Digitalif3",
+            "author": "Robert Rajs",
+            "date": "2023/09/22"
+        },
+        "settings": {
+            "global": {
+                "paused": true,
+                "fps": 30
+            }
+        }
+    }
+}
