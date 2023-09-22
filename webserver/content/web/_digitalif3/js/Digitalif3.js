@@ -23,8 +23,8 @@ class Digitalif3 {
             console.log(key,value);
             this.runtimeTicker = [];
             this.runtimeTicker[i] = setInterval(function() {
-                console.log("jedu");
-            },value.fps * 20);
+                console.log(key);
+            },200000 / value.fps); // TODO: ),1000 / value.fps);
             i++;
         }
     }
