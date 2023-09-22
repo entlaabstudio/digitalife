@@ -8,8 +8,12 @@
         },
         "settings": {
             "global": {
-                "paused": true,
-                "fpsLimit": 60
+                "paused": false,
+                "fpsLimit": 60,
+                "slowdownMultiplier": 512,
+                "zeroPoints": {
+                    "consoleInfo": true
+                }
             }
         }
     }
