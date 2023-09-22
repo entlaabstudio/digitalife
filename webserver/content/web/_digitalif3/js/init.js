@@ -7,7 +7,12 @@ class Digitalif3 {
             this.dlParams = dlParams;
             this.console.info(json)
             this.console.info(dlParams);
+            this.init();
         });
+    }
+    init() {
+        var c = this.console;
+        c.info("ahoj");
     }
     console = {
         info(any) {
