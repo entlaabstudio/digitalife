@@ -9,7 +9,7 @@
         "settings": {
             "global": {
                 "paused": true,
-                "fps": 30
+                "fpsLimit": 60
             }
         }
     }

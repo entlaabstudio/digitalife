@@ -5,15 +5,30 @@ class Digitalif3 {
         .then((json) => {
             this.conf = json;
             this.dlParams = dlParams;
-            this.console.info(json)
-            this.console.info(dlParams);
             this.init();
         });
     }
     init() {
-        var c = this.console;
-        c.info("ahoj");
+        this.runtime();
     }
+
+    runtime() {
+        var c = this.console;
+        c.info("aahoj");
+        c.info(this.conf)
+        c.info(this.dlParams.objekty);
+
+        var i = 0;
+        for (const [key, value] of Object.entries(this.dlParams.objekty)) {
+            console.log(key,value);
+            this.runtimeTicker = [];
+            this.runtimeTicker[i] = setInterval(function() {
+                console.log("jedu");
+            },value.fps * 20);
+            i++;
+        }
+    }
+
     console = {
         info(any) {
             var that = globalThis.DL3;
