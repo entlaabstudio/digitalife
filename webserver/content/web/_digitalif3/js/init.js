@@ -3,10 +3,19 @@ class Digitalif3 {
         fetch('./json/digitalif3.conf.json')
         .then((response) => response.json())
         .then((json) => {
-            console.log(json)
             this.conf = json;
             this.dlParams = dlParams;
-            console.log(dlParams);
+            this.console.info(json)
+            this.console.info(dlParams);
         });
+    }
+    console = {
+        info(any) {
+            var that = globalThis.DL3;
+            console.info(
+                '[' + that.conf.app.info.name + ' ' + that.conf.app.info.version + ']',
+                any
+            );
+        }
     }
 }
