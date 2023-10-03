@@ -1,6 +1,14 @@
 onmessage = function(e) {
-    // console.log(e.data);
+    console.log(e.data);
+
+    if (e.data.cmd == "init") {
+        var data = e.data
+        postMessage({
+            init: "ok"
+        });
+    }
+
     postMessage({
-        value: "nazdar",
+        value: data,
     });
 }
