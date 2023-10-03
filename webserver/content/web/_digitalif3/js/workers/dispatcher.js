@@ -43,12 +43,13 @@ class WDispatcher {
 
     runtime(e) {
         var that = this;
+        var numOfWorkers = Object.entries(e.data.cfg.objs).length;
         for (const [key,value] of Object.entries(e.data.cfg.objs)) {
             this.workerInit(key,value);
         }
         
         var interval = setInterval(function() {
-            if (that.workersReady == 4) {
+            if (that.workersReady == numOfWorkers) {
                 clearInterval(interval);
                 workersPushReferences();
             }
