@@ -23,31 +23,32 @@ class WDispatcher {
         
         this.W[key].postMessage({
             cmd: "init",
-            obj: value,
+            obj: {
+                ...value,
+                id: parseInt(key)
+            },
             cfg: cfg
         });
 
         this.W[key].onmessage = function(e) {
-            if (e.data.init !== undefined) {
-                if (e.data.init == "ok") {
-                    console.log("jsem OK!");
+            if (e.data.status !== undefined) {
+                if (e.data.status == "ok") {
                     that.workersReady++;
                 }
             }
+
+            console.log(e.data);
         }
     }
 
     runtime(e) {
         var that = this;
-        console.log(e.data.cfg.objs);
         for (const [key,value] of Object.entries(e.data.cfg.objs)) {
             this.workerInit(key,value);
-
-            console.log(key,value);
         }
         
         var interval = setInterval(function() {
-            if (that.workersReady == 2) {
+            if (that.workersReady == 4) {
                 clearInterval(interval);
                 workersPushReferences();
             }
@@ -55,21 +56,18 @@ class WDispatcher {
 
         function workersPushReferences() {
             for (const [key,value] of Object.entries(that.W)) {
-                console.log(value.postMessage({
-                    ahoj: "nazdar"
-                }));
-                
                 for (const [key2,value2] of Object.entries(that.W)) {
                     if (key2 != key) {
                         value.postMessage({
                             cmd: "pushOtherWorker",
-                            // worker: value2
+                            key: key2
                         });
                     }
                 }
+                value.postMessage({
+                    cmd: "showOtherWorkers"
+                });
             }
-
-            console.log(that.W);
         }
 
         postMessage({
