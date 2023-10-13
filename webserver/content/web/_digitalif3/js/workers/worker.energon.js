@@ -21,8 +21,10 @@ class Energon {
     }
 
     init() {
+        this.run()
+
         this.post({
-            status: "ok"
+            status: "ok" // must be ok
         })
     }
 
@@ -31,6 +33,56 @@ class Energon {
         this.post({
             otherWorkers: this.otherWorkers
         });
+    }
+
+    run() {
+        var cfg = this.data.cfg.app.settings;
+        var otherWorkers = this.otherWorkers;
+        var fpsLimitMs = 1000 / cfg.global.fpsLimit;
+        var slowdownMultiplier = cfg.global.slowdownMultiplier;
+        
+        var id = this.data.obj.id; // object id
+        var fpsMs = 1000 / this.data.obj.fps;
+        var posX = this.data.obj.posX;
+        var posY = this.data.obj.posY;
+        var weight = this.data.obj.weight;
+        var acclrX = this.data.obj.acclrX;
+        var acclrY = this.data.obj.acclrY;
+        var interaction = this.data.obj.interaction;
+
+        if (fpsLimitMs > fpsMs) {
+            fpsMs = fpsLimitMs;
+        }
+        
+        // console.warn( // no delete for this time
+        //     cfg,
+        //     otherWorkers,
+        //     fpsLimitMs,
+        //     fpsMs,
+        //     acclrX,
+        //     acclrY,
+        //     id,
+        //     interaction,
+        //     posX,
+        //     posY,
+        //     weight,
+        //     slowdownMultiplier,
+        //     // this.data.obj
+        // );
+
+        tick(this); // first tick
+
+        function tick(that) {
+            setTimeout(function() {
+                console.error('object ' + id + ' is in good condition');
+
+                tick(that);
+            },that.slow(fpsMs));
+        }
+    }
+
+    slow(ms) {
+        return ms * this.data.cfg.app.settings.global.slowdownMultiplier;
     }
     
     pushOtherWorker(e) {

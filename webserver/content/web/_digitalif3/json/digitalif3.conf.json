@@ -9,8 +9,8 @@
         "settings": {
             "global": {
                 "paused": false,
-                "fpsLimit": 600,
-                "slowdownMultiplier": 1,
+                "fpsLimit": 120,
+                "slowdownMultiplier": 123,
                 "zeroPoints": {
                     "consoleInfo": false
                 }
