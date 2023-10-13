@@ -1,18 +1,10 @@
 onmessage = function(e) {
-    if (e.data.cmd == "init") {
-        this.Energon = new Energon(e);
-    }
-
-    if (e.data.cmd == "pushOtherWorker") {
-        this.Energon.pushOtherWorker(e);
-    }
-
-    if (e.data.cmd == "showOtherWorkers") {
-        this.Energon.showOtherWorkers(e);
-    }
-
-    if (e.data.cmd == "pushOtherObjData") {
-        console.warn("getting other object",e.data);
+    switch(e.data.cmd) {
+        case "init": this.Energon = new Energon(e);
+        case "run": this.Energon.run(e);
+        case "pushOtherWorker": this.Energon.pushOtherWorker(e);
+        case "showOtherWorkers": this.Energon.showOtherWorkers(e);
+        case "pushOtherObjData": console.warn("getting other object",e.data);
     }
 }
 
@@ -25,8 +17,7 @@ class Energon {
     }
 
     init() {
-        this.run()
-
+        this.wasInit = true;
         this.post({
             status: "ok" // must be ok
         })

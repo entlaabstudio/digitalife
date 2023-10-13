@@ -68,11 +68,18 @@ class WDispatcher {
         var interval = setInterval(function() {
             if (that.workersReady == numOfWorkers) {
                 clearInterval(interval);
-                workersPushReferences();
+                workersPushReferences().then(function() {
+                    for (const [key,value] of Object.entries(that.W)) {
+                        console.log(value);
+                        value.postMessage({
+                            cmd: "run"
+                        });
+                    }
+                });
             }
         },200);
 
-        function workersPushReferences() {
+        async function workersPushReferences() {
             for (const [key,value] of Object.entries(that.W)) {
                 for (const [key2,value2] of Object.entries(that.W)) {
                     if (key2 != key) {
