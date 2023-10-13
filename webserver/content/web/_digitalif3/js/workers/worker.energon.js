@@ -10,6 +10,10 @@ onmessage = function(e) {
     if (e.data.cmd == "showOtherWorkers") {
         this.Energon.showOtherWorkers(e);
     }
+
+    if (e.data.cmd == "pushOtherObjData") {
+        console.warn("getting other object",e.data);
+    }
 }
 
 class Energon {
@@ -74,9 +78,36 @@ class Energon {
 
         function tick(that) {
             setTimeout(function() {
+
                 console.error('object ' + id + ' is in good condition');
 
-                tick(that);
+                acclrX++; // TODO: delete this row
+                acclrY--; // TODO: delete this row
+                posX++; // TODO: delete this row
+                posY--; // TODO: delete this row
+
+                // pop
+                for (const [key,value] of Object.entries(otherWorkers)) {
+                    that.data.cmd = "pop";
+                    that.post({
+                        objId: value
+                    });
+                }
+                
+                // push
+                that.data.cmd = "push";
+                that.post({
+                    obj: {
+                        acclrX,
+                        acclrY,
+                        posX,
+                        posY,
+                        weight,
+                    }
+                });
+                
+                tick(that); // TODO: pause will be here
+
             },that.slow(fpsMs));
         }
     }

@@ -10,7 +10,7 @@
             "global": {
                 "paused": false,
                 "fpsLimit": 120,
-                "slowdownMultiplier": 123,
+                "slowdownMultiplier": 246,
                 "zeroPoints": {
                     "consoleInfo": false
                 }

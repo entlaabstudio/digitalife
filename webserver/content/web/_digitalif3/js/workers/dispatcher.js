@@ -37,7 +37,24 @@ class WDispatcher {
                 }
             }
 
-            console.log(e.data);
+            if (e.data.cmd == "push") {
+                that.conf.objs[e.data.id] = {
+                    ...that.conf.objs[e.data.id],
+                    ...e.data.obj
+                }
+                console.warn(that.conf.objs[e.data.id]);
+            }
+
+            if (e.data.cmd == "pop") {
+                console.log(that.conf.objs[e.data.objId],"pop");
+                that.W[e.data.id].postMessage({
+                    cmd: "pushOtherObjData",
+                    obj: {
+                        id: e.data.objId,
+                        ...that.conf.objs[e.data.objId]
+                    }
+                });
+            }
         }
     }
 
